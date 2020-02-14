@@ -1,0 +1,370 @@
+@prefix : <http://prc.di.uminho.pt/2020/salaAulaInf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://prc.di.uminho.pt/2020/salaAulaInf> .
+
+<http://prc.di.uminho.pt/2020/salaAulaInf> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://prc.di.uminho.pt/2020/salaAula#frequenta
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> rdf:type owl:ObjectProperty ;
+                                                  owl:inverseOf <http://prc.di.uminho.pt/2020/salaAula#éFrequentadaPor> ;
+                                                  rdfs:domain <http://prc.di.uminho.pt/2020/salaAula#Aluno> ;
+                                                  rdfs:range <http://prc.di.uminho.pt/2020/salaAula#UC> .
+
+
+###  http://prc.di.uminho.pt/2020/salaAula#leciona
+<http://prc.di.uminho.pt/2020/salaAula#leciona> rdf:type owl:ObjectProperty ;
+                                                owl:inverseOf <http://prc.di.uminho.pt/2020/salaAula#éLecionadaPor> ;
+                                                rdfs:domain <http://prc.di.uminho.pt/2020/salaAula#Professor> ;
+                                                rdfs:range <http://prc.di.uminho.pt/2020/salaAula#UC> .
+
+
+###  http://prc.di.uminho.pt/2020/salaAula#éFrequentadaPor
+<http://prc.di.uminho.pt/2020/salaAula#éFrequentadaPor> rdf:type owl:ObjectProperty .
+
+
+###  http://prc.di.uminho.pt/2020/salaAula#éLecionadaPor
+<http://prc.di.uminho.pt/2020/salaAula#éLecionadaPor> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://prc.di.uminho.pt/2020/salaAula#ident
+<http://prc.di.uminho.pt/2020/salaAula#ident> rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain <http://prc.di.uminho.pt/2020/salaAula#Pessoa> .
+
+
+###  http://prc.di.uminho.pt/2020/salaAula#nome
+<http://prc.di.uminho.pt/2020/salaAula#nome> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://prc.di.uminho.pt/2020/salaAula#Aluno
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://prc.di.uminho.pt/2020/salaAula#Pessoa> .
+
+
+###  http://prc.di.uminho.pt/2020/salaAula#Pessoa
+<http://prc.di.uminho.pt/2020/salaAula#Pessoa> rdf:type owl:Class .
+
+
+###  http://prc.di.uminho.pt/2020/salaAula#Professor
+<http://prc.di.uminho.pt/2020/salaAula#Professor> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://prc.di.uminho.pt/2020/salaAula#Pessoa> .
+
+
+###  http://prc.di.uminho.pt/2020/salaAula#UC
+<http://prc.di.uminho.pt/2020/salaAula#UC> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://prc.di.uminho.pt/2020/salaAula#a82324
+<http://prc.di.uminho.pt/2020/salaAula#a82324> rdf:type owl:NamedIndividual ,
+                                                        <http://prc.di.uminho.pt/2020/salaAula#Aluno> ,
+                                                        <http://prc.di.uminho.pt/2020/salaAula#Pessoa> ;
+                                               <http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ;
+                                               <http://prc.di.uminho.pt/2020/salaAula#ident> "A82324"^^xsd:string ;
+                                               <http://prc.di.uminho.pt/2020/salaAula#nome> "Carlos Barbosa"^^xsd:string .
+
+
+###  http://prc.di.uminho.pt/2020/salaAula#jcr
+<http://prc.di.uminho.pt/2020/salaAula#jcr> rdf:type owl:NamedIndividual ,
+                                                     <http://prc.di.uminho.pt/2020/salaAula#Pessoa> ,
+                                                     <http://prc.di.uminho.pt/2020/salaAula#Professor> ;
+                                            <http://prc.di.uminho.pt/2020/salaAula#leciona> <http://prc.di.uminho.pt/2020/salaAula#prc> ;
+                                            <http://prc.di.uminho.pt/2020/salaAula#ident> "D1513"^^xsd:string ;
+                                            <http://prc.di.uminho.pt/2020/salaAula#nome> "José Carlos Ramalho"^^xsd:string .
+
+
+###  http://prc.di.uminho.pt/2020/salaAula#prc
+<http://prc.di.uminho.pt/2020/salaAula#prc> rdf:type owl:NamedIndividual ,
+                                                     <http://prc.di.uminho.pt/2020/salaAula#UC> ;
+                                            <http://prc.di.uminho.pt/2020/salaAula#éFrequentadaPor> <http://prc.di.uminho.pt/2020/salaAula#a82324> ,
+                                                                                                    :pg41093 ;
+                                            <http://prc.di.uminho.pt/2020/salaAula#éLecionadaPor> <http://prc.di.uminho.pt/2020/salaAula#jcr> ;
+                                            <http://prc.di.uminho.pt/2020/salaAula#nome> "Processamento e Representação de Conhecimento"^^xsd:string .
+
+
+###  http://prc.di.uminho.pt/2020/salaAulaInf#gcs
+:gcs rdf:type owl:NamedIndividual ,
+              <http://prc.di.uminho.pt/2020/salaAula#UC> ;
+     <http://prc.di.uminho.pt/2020/salaAula#éLecionadaPor> :prh ;
+     <http://prc.di.uminho.pt/2020/salaAula#nome> "Gramáticas" .
+
+
+###  http://prc.di.uminho.pt/2020/salaAulaInf#pg41093
+:pg41093 rdf:type owl:NamedIndividual ,
+                  <http://prc.di.uminho.pt/2020/salaAula#Aluno> ;
+         <http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ;
+         <http://prc.di.uminho.pt/2020/salaAula#ident> "PG41093" ;
+         <http://prc.di.uminho.pt/2020/salaAula#nome> "Pedro Mimoso Silva" .
+
+
+###  http://prc.di.uminho.pt/2020/salaAulaInf#prh
+:prh rdf:type owl:NamedIndividual ,
+              <http://prc.di.uminho.pt/2020/salaAula#Professor> ;
+     <http://prc.di.uminho.pt/2020/salaAula#leciona> :gcs ;
+     <http://prc.di.uminho.pt/2020/salaAula#nome> "Pedro Rangel Henriques" .
+
+
+###  http://prc.di.uminho.pt/2020/salaAulaInf#pri
+:pri rdf:type owl:NamedIndividual ,
+              <http://prc.di.uminho.pt/2020/salaAula#UC> ;
+     <http://prc.di.uminho.pt/2020/salaAula#éLecionadaPor> <http://prc.di.uminho.pt/2020/salaAula#jcr> ;
+     <http://prc.di.uminho.pt/2020/salaAula#nome> "Processamento e Representação de Informação" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+### http://prc.di.uminho.pt/2020/salaAulaInf#a81712
+:a81712 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A81712" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Ana Filipa Pereira" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a71385
+:a71385 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A71385" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Bruno Silva" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a78997
+:a78997 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A78997" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Bruno Sousa" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a82324
+:a82324 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A82324" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Carlos Barbosa" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#pg37149
+:pg37149 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "PG37149" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Diego Silva" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a75536
+:a75536 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A75536" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Eduardo Araújo" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a71940
+:a71940 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A71940" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Eduardo Cunha" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a70922
+:a70922 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A70922" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Francisco Costa" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#pg38415
+:pg38415 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "PG38415" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Henrique Ribeiro" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a80757
+:a80757 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A80757" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Jaime Leite" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#pg33874
+:pg33874 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "PG33874" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "João Grenhas" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a75569
+:a75569 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A75569" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "João Leal" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a80874
+:a80874 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A80874" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "João Pimentel" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a76516
+:a76516 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A76516" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "João Vieira" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a80424
+:a80424 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A80424" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "José Carvalho" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a63129
+:a63129 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A63129" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "José Freitas" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a72187
+:a72187 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A72187" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "José Lima" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a74036
+:a74036 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A74036" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Manuel Monteiro" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a67713
+:a67713 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A67713" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Manuel Moreno" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#pg39292
+:pg39292 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "PG39292" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Maria Pinto" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#pg41089
+:pg41089 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "PG41089" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Miguel Dias" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#pg17918
+:pg17918 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "PG17918" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Paulo Martins" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a33524
+:a33524 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A33524" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Pedro Paes" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a74264
+:a74264 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A74264" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Rafael Silva" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a74568
+:a74568 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A74568" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Ricardo Canela" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a75411
+:a75411 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A75411" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Ricardo Leal" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a78914
+:a78914 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A78914" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Ricardo Martins" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a78764
+:a78764 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A78764" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Ricardo Neves" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a77045
+:a77045 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A77045" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Ricardo Pereira" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a79947
+:a79947 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A79947" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Rui Costa" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a74658
+:a74658 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A74658" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Rui Vieira" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a82617
+:a82617 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A82617" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Shahzod Yusupov" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a75328
+:a75328 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A75328" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Tiago Baptista" .
+ 
+### http://prc.di.uminho.pt/2020/salaAulaInf#a61032
+:a61032 rdf:type owl:NamedIndividual, 
+<http://prc.di.uminho.pt/2020/salaAula#Aluno> ; 
+<http://prc.di.uminho.pt/2020/salaAula#frequenta> <http://prc.di.uminho.pt/2020/salaAula#prc> ; 
+<http://prc.di.uminho.pt/2020/salaAula#ident> "A61032" ; 
+<http://prc.di.uminho.pt/2020/salaAula#nome> "Tiago Pereira" .
+ 
