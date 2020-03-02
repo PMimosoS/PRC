@@ -1,0 +1,10 @@
+1 - Nome dos Compositores (Ordem Alfabética)
+
+PREFIX : <http://prc.di.uminho.pt/2020/obrasMusicais#>
+select distinct ?nome where { 
+	?o a :Obra ;
+    	:compositor ?nome .
+    
+} order by ?nome
+
+2 - Titulos das Obras do Tipo (Marcha de Desfile)
