@@ -1,0 +1,192 @@
+@prefix : <http://prc.di.uminho.pt/2020/Compras#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://prc.di.uminho.pt/2020/Compras> .
+
+<http://prc.di.uminho.pt/2020/Compras> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://prc.di.uminho.pt/2020/Compras#compra
+:compra rdf:type owl:ObjectProperty ;
+        owl:inverseOf :éCompradoPor ;
+        rdfs:domain :Cliente ;
+        rdfs:range :Produto .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#vende
+:vende rdf:type owl:ObjectProperty ;
+       owl:inverseOf :éVendidoPor ;
+       rdfs:domain :Loja ,
+                   :LojaGrande ;
+       rdfs:range :Produto .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#éCompradoPor
+:éCompradoPor rdf:type owl:ObjectProperty ;
+              rdfs:domain :Produto ;
+              rdfs:range :Cliente .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#éVendidoPor
+:éVendidoPor rdf:type owl:ObjectProperty ;
+             rdfs:domain :Produto ;
+             rdfs:range :Loja ,
+                        :LojaGrande .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://prc.di.uminho.pt/2020/Compras#codigo
+:codigo rdf:type owl:DatatypeProperty .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#email
+:email rdf:type owl:DatatypeProperty .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#nome
+:nome rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://prc.di.uminho.pt/2020/Compras#Cliente
+:Cliente rdf:type owl:Class ;
+         rdfs:subClassOf :CompraVenda .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#CompraVenda
+:CompraVenda rdf:type owl:Class .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#Loja
+:Loja rdf:type owl:Class .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#LojaGrande
+:LojaGrande rdf:type owl:Class ;
+            rdfs:subClassOf :Loja .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#Produto
+:Produto rdf:type owl:Class ;
+         rdfs:subClassOf :CompraVenda .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://prc.di.uminho.pt/2020/Compras#antonio
+:antonio rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#arroz
+:arroz rdf:type owl:NamedIndividual ,
+                :Produto ;
+       :éVendidoPor :continente ,
+                    :merceariaBairro ,
+                    :merceariaJorge ,
+                    :pingoDoce ;
+       :codigo "a1" ;
+       :nome "Arroz" .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#carneVaca
+:carneVaca rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#cerveja
+:cerveja rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#continente
+:continente rdf:type owl:NamedIndividual ,
+                     :LojaGrande ;
+            :email "continente@gmail.com" ;
+            :nome "Continente" .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#frango
+:frango rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#jorge
+:jorge rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#laranjas
+:laranjas rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#manuel
+:manuel rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#maria
+:maria rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#massa
+:massa rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#maças
+:maças rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#merceariaBairro
+:merceariaBairro rdf:type owl:NamedIndividual ,
+                          :Loja ;
+                 :email "mbairro@gmail.com" ;
+                 :nome "Mercearia do Bairro" .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#merceariaJorge
+:merceariaJorge rdf:type owl:NamedIndividual ,
+                         :Loja ;
+                :email "jorge@gmail.com" ;
+                :nome "Mercearia do Jorge" .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#pao
+:pao rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#pedro
+:pedro rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#pingoDoce
+:pingoDoce rdf:type owl:NamedIndividual ,
+                    :LojaGrande ;
+           :email "pingodoce@gmail.com" ;
+           :nome "Pingo Doce" .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#sumos
+:sumos rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#talhoBairro
+:talhoBairro rdf:type owl:NamedIndividual ,
+                      :Loja ;
+             :email "tbairro@gmail.com" ;
+             :nome "Talho do Bairro" .
+
+
+###  http://prc.di.uminho.pt/2020/Compras#vinho
+:vinho rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

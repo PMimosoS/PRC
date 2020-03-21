@@ -1,0 +1,25 @@
+1 -
+
+select ?loja where {
+   ?loja a :Loja .
+      :vende ?produto .
+   ?produto :nome "A"
+   
+}
+
+2 -
+
+select ?cliente ?produtos where {
+   ?cliente a :Cliente.
+   ?cliente :nome "X".
+   ?cliente :compra ?produtos
+}
+
+3 -
+
+select ?loja ?clientes where{
+   ?loja a :Loja.
+   ?loja :nome "Y".
+   ?loja :vende ?produtos.
+   ?produtos :éCompradoPor ?clientes
+}
