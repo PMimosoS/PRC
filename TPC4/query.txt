@@ -1,0 +1,10 @@
+select distinct ?name ?gender ?abstract ?birthDate ?birthPlace ?deathDate where {
+?s a dbo:Swimmer.
+?s foaf:gender ?gender .
+?s foaf:name ?name .
+?s dbo:abstract ?abstract .
+?s dbo:birthPlace/dbo:longName ?birthPlace .
+?s dbo:birthDate ?birthDate .
+?s dbo:deathDate ?deathDate
+
+}
