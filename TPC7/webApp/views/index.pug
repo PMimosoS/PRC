@@ -1,0 +1,10 @@
+extends layout
+block content
+  .w3-container
+    h1.w3-blue 
+    table.w3-table-all
+      each r in repositorios.results.bindings
+          p
+            a(href='http://localhost:4019/sparql/input')= r.title.value
+    form(action='http://localhost:4019/sparql/input')
+      input(type='submit', value='Querys')

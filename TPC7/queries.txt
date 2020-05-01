@@ -1,0 +1,38 @@
+1 - Query dos Filmes
+
+select ?titulo ?curacao ?data ?lingua ?pais ?realizador where{ 
+    ?f a :Filme . 
+    ?f :título ?titulo . 
+    ?f :duração ?duracao. 
+    ?f :dataLançamento ?data . 
+    ?f :temLíngua ?l . bind(strafter(str(?l),"cinema#") as ?língua). 
+    filter(?lingua = "English").
+    ?f :temPaísOrigem ?p .
+    bind(replace(strafter(str(?p),"cinema#"),"_"," ") as ?pais).
+    ?f :temRealizador ?realizador .
+    ?realizador :nome ?rnome
+}
+
+2 - Query dos Atores
+
+PREFIX : <http://www.di.uminho.pt/prc2020/2020/2/cinema#>
+select ?nome ?produziu ?sexo ?representa ?realizou where { 
+	?a a :Ator .
+    ?a :nome ?nome .
+    ?a :produziu ?produziu .
+    ?a :sexo ?sexo .
+    ?a :representa ?representa .
+    ?a :realizou ?realizou .
+    
+    
+} limit 100 
+
+3 - Query das Personagens
+
+PREFIX : <http://www.di.uminho.pt/prc2020/2020/2/cinema#>
+select ?p ?nome ?filme ?ator where { 
+	?p a :Personagem .
+    ?p :nome ?nome .
+    ?p :éPersonagemDe ?filme .
+    ?p :éRepresentadoPor ?ator .
+}
