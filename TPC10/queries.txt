@@ -1,0 +1,45 @@
+1 - Tios 
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX : <http://www.di.uminho.pt/prc2020/familyTree#>
+select ?p ?uncle where { 
+	?p a :Person .
+    ?p :hasParent ?par .
+    ?par :hasSibling ?uncle .
+}
+
+2 - Primos
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX : <http://www.di.uminho.pt/prc2020/familyTree#>
+select ?p ?cousin where { 
+	?p a :Person .
+    ?p :hasParent ?par .
+    ?par :hasSibling ?uncle .
+    ?uncle :hasChild ?cousin .
+    filter(?p != ?cousin).
+}
+
+3 - Ancestrais
+
+PREFIX : <http://www.di.uminho.pt/prc2020/familyTree#>
+select ?p ?ancestor where { 
+	?p a :Person .
+    ?p :hasParent ?parent
+    {?parent :hasParent ?ancestor .}
+    UNION
+    {?parent :hasGrandParent ?ancestor .}
+} limit 100 
+4 - Descendentes
+
+
+PREFIX : <http://www.di.uminho.pt/prc2020/familyTree#>
+select ?p ?descendent where { 
+	?p a :Person .
+    {?p :hasChild ?descendent .}
+    UNION
+    {?p :hasGrandChild ?descendent .}
+}
+
+5 - Cunhados
+
